@@ -14,115 +14,77 @@ class Interactive {
     private var currentInput: String = "q"
     private var io = Io()
     private var library = Library()
+    private var checkout: Bool = true
+ 
+    
     
     
     func go() {
-        
-//        var Checkout: String
-//        var Checkin: String
-        
+//Welcome-Help Menu
         while !done {
-            
-            io.writeMessage("What is your command (TYPE 6 for help)?")
-            currentInput = io.getInput()
-            
-            if currentInput == "5" {
-                done = true
-                print ( "Exiting.....")
+                io.writeMessage( "\n WELCOME TO MY LIBRARY \n Press 1 to return to Help menu. \n Press 2 to CHECKOUT book,\n Press 3 to CHECK IN Book, \n Press 4 to Add a new book, \n Press 5 to EXIT, \n Press 6 for a listing of books available")
+                    currentInput = io.getInput()
                 
-            } else if currentInput == "1"{
-//                bookLibrary()
-                io.writeMessage("Press 1 to return to main menu. Press 2 to Checkout book, Press 3 to Checkin Book, ")
-                currentInput = io.getInput()
-                
-            } else if currentInput == "2" {
-                
-                currentInput = io.getInput()
-//                Checkout = String (currentInput)
-                // checkoutBook()
-                
-            } else if currentInput == "3" {
-                currentInput = io.getInput()
-//                Checkin = String (currentInput)
-                print("You have checked out:")
-                
-            } else if currentInput == "4" {
-                io.writeMessage("What is the id of the book to add?")
-                currentInput = io.getInput()
-                let id = Int(currentInput) ?? 0
-                
-                io.writeMessage("What is the name of the book to add?")
-                let bookName = io.getInput()
-                
-                library.addBook(id: id, bookTitle: bookName)
-                
-            } else if currentInput == "7" {
-                library.listAllBooks()
-                
-            } else if currentInput == "6" {
-                print ("HELP : TO BEGIN TYPE 1; BEGIN CHECKOUT TYPE 2 \n BEGIN CHECK IN TYPE 3 ;  BEGIN ADD BOOK TYPE 4")
-            
+                    if currentInput == "1" {
+                    io.writeMessage(" HELP MENU Press 1 to return to HELP menu. \n Press 2 to CHECKOUT book,\n Press 3 to CHECK IN Book, \n Press 4 to Add a new book, \n Press 5 to EXIT, \n Press 6 for a listing of books avaiilable")
+                    currentInput = io.getInput()
+       
+//Checout
+            }   else if currentInput == "2" {
+                    io.writeMessage("What is the id of the book you want to checkout?")
+                    currentInput = io.getInput()
+                  
+                    let id = Int(currentInput) ?? 0
+                    library.removebook(id: id)
 
-            }else {
-                print("Invailed entry please try again")
+                    print ("The book you have choosen is now checked out, press 6 to see remaining books availble for checkout.")
+                    
+                    
+            
+            
+//Check In
+                    
+            }   else if currentInput == "3" {
+                    io.writeMessage("What is the id of the book to add?")
+                    currentInput = io.getInput()
+                    
+                    let id = Int(currentInput) ?? 0
+                    io.writeMessage("What is the name of the book to add?")
+                    
+                    let bookName = io.getInput()
+                    library.addBook(id: id, bookTitle: bookName)
+                print ("The book you have choosen is now checked in, press 6 to see remaining books availble for checkout.")
+
+                    
+// Add new book
+                    
+            }   else if currentInput == "4" {
+                    io.writeMessage("What is the id of the book to add?")
+                    currentInput = io.getInput()
+                
+                    let id = Int(currentInput) ?? 0
+                    io.writeMessage("What is the name of the book to add?")
+                
+                    let bookName = io.getInput()
+                    library.addBook(id: id, bookTitle: bookName)
+                    
+                print ("The book you have added has been listed in the library, press 6 to see available books for checkout.")
+
+           
+// Quit Command
+            }   else if currentInput == "5" {
+                        done = true
+                        print ( "Exiting.....")
+// List Books
+            }   else if currentInput == "6" {
+                    library.listAllBooks()
+                    
+                    print("These items are availale for checkout")
+                
+            
+            }   else {
+                        print("Invailed entry please try again")
             }
         }
     }
 }
-
-
-
-
-//func addNewBooks(){
-//    books1.insert("newbook", at:(0))
-//}
-
-
-//func checkOutBook(){
-//    books1.remove(at:books1.count-1 )
-//}
-
-
-//func checkInBooks() {
-//    books.insert("return", at:(1))
-//}
-
-
-//books().remove(at:books.count-1)
-
-
-
-// print("Now the list has \(books) in it")
-
-
-//for bookcode in books.key
-//      print("key:\(books)")
-
-//    print("Books listed in library:\(books.count)")
-
-
-/*
- 
- 
- 
- 
- *  view list of books
- 
- *  add dates on checkout
- *  check in on due date
- *  list checked out books
- *
- 
- 
- 
- 
- 
- 
- */
-
-
-
-
-
-
-

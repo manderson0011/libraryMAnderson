@@ -27,13 +27,13 @@ class Library {
     
 // lists all books
     func listAllBooks() {
-        for (id, book) in books {
+        let sortedKeys = books.keys.sorted()
         
-            print("id: \(id), title:\(book.title)")
-            
-        
+        for id in sortedKeys {
+            print("Id: \(id) Title: \(books[id]!.title)")
     }
-    }
+ }
+    
 //preloaded books
     func populateInitialBooks() {
         addBook(id: 1, bookTitle: "Clan of the Cave Bear")

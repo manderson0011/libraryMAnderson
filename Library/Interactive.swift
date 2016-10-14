@@ -53,7 +53,7 @@ class Interactive {
                     
                     let bookName = io.getInput()
                     library.addBook(id: id, bookTitle: bookName)
-                print ("The book you have choosen is now checked in, press 6 to see remaining books availble for checkout.")
+                print ("The book you have choosen is now checked in today:\(Date()), press 6 to see remaining books availble for checkout.")
 
                     
 // Add new book

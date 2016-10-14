@@ -45,11 +45,11 @@ class Library {
 
 
         //removes books / CHECKOUT
-    func removebook(id: Int){
+        func removebook(id: Int){
         let currentDate = Calendar.current
         let dueDate = currentDate.date(byAdding: .day, value: 7, to:Date())
         books.removeValue(forKey: id)
-         print("You have successfully checked out your book today: \(currentDate) and your book is due back on: \(dueDate!)")
+         print("You have successfully checked out your book today:\(Date()) and your book is due back on: \(dueDate!)")
         }
     }
 
